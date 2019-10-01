@@ -1,3 +1,4 @@
+package com.BridgeLabz.Functional;
 import java.util.Arrays;
 import java.util.*;
 
@@ -179,7 +180,89 @@ public class Utility
 	
   
 	
-	
+
+
+		static void vendingMachine()
+		{
+			int[] availableNotes= {2000,500,200,100,50,10,1};
+			int[] withdrawNotes= new int[availableNotes.length];
+			String decision="";
+			int mainBalance= 1000000,count=0;
+			System.out.println("Total Balance in machine is 10,00,000");
+			System.out.println("how much do you want to withdraw");
+			while(mainBalance!=0 & decision!="quit")
+			{
+				int withdraw = sc.nextInt();
+				int amount=withdraw;
+				for (int i = 0; i < availableNotes.length; i++) {
+					while(amount>availableNotes[i]-1)
+					{
+						amount-=availableNotes[i];
+						count++;
+					}
+					withdrawNotes[i]=count;
+					count=0;
+				}
+				for (int i = 0; i < availableNotes.length; i++) {
+					System.out.println(availableNotes[i]+" of "+withdrawNotes[i]);
+				}
+				System.out.println("Rupees in change");
+				System.out.println("remaining amount is"+(mainBalance-withdraw));
+				
+				System.out.println("Do it again or say 'quit'");
+				decision=sc.next();
+			}		
+		}
+
+		
+		static void daysOfWeek(int d,int m,int y) {
+		String[] days= {"Sunday","Monday","Tuesday","Wedday","Thursday","Firday","Satday"};
+		String[] months= {"Jan","Feb","March","April","May"+
+				"June","july","Aug","Sept","Oct","Nov","Dec"};
+		 
+		int y0 = y-(14-m) / 12;
+		int	x = y0 + y0/4-y0/100 + y0/400;
+		int	m0 = m + 12 *((14-m) / 12)-2;
+		int	d0 = (d+x+31*m0/12) % 7;
+		
+		System.out.print("Its "+days[d0]+" of ");
+		System.out.print(months[m-1]);
+		}
+
+
+		static void doConversion()
+		{
+			String input=sc.next();
+			String temp="";
+			for (int j = 0; j < input.length(); j++) {
+				
+			
+			if(Character.isDigit(input.charAt(j)))
+				temp+=input.charAt(j);
+			if(Character.isAlphabetic(input.charAt(j)))
+				{
+				    if(input.charAt(j)=='F' ||input.charAt(j)=='f')
+				    {
+				    	System.out.println("its in Ferenhite, Its Celcius conversion is");
+				    	int tempp=Integer.parseInt(temp);
+				    	int Dc=(tempp*9/5)+32;
+				    	System.out.println(Dc);
+				    	
+				    }
+				    if(input.charAt(j)=='C' ||input.charAt(j)=='c')
+				    {System.out.println("its in Celcius, Its Farenhite conversion is");
+			    	int tempp=Integer.parseInt(temp);
+			    	int Dc=(tempp-32)*5/9;
+			    	System.out.println(Dc);}
+				}
+		}
+
+
+
+
+
+
+}
 	
 	
 	
