@@ -176,11 +176,6 @@ public class Utility
 		}
 	}
 
-	
-	
-  
-	
-
 
 		static void vendingMachine()
 		{
