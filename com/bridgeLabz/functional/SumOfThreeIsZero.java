@@ -1,3 +1,5 @@
+// program to pass the array and find how much pair of (3 elements) are there whose addition equals to zero
+
 package com.bridgeLabz.functional;
 public class SumOfThreeIsZero {
 	public static void main(String asd[])

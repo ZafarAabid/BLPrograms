@@ -1,10 +1,16 @@
-package com.bridgeLabz.functional;
+/**
+ *    simple flip Coin multiple times to get average chances of
+ *    Occurring head vs tail 
+ */
 
+package com.bridgeLabz.functional;
+ 
 public class FlipCoin {
 	public static void main(String asd[])
 	{
 		Utility u = new Utility();
-		 u.flipTheCoin();
+		int trials = Utility.ScannerInt();
+		 u.flipTheCoin(trials);
 	}
 
 }

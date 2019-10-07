@@ -5,7 +5,10 @@
   Fahrenheit to Celsius: (°F − 32) x 5/9 = °C
 */
 
- package com.BridgeLabz.Functional;
+package com.BLfunctional;
+
+
+
 
  public class TempConv {
 

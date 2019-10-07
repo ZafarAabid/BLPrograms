@@ -14,14 +14,18 @@ package com.bridgeLabz.functional;
 import java.util.*;
 public class TicTacToe 
 {
+	
+//	program to play tictactoe with computer where user and computer puts
+//	ulternative position until anyone of them Either won or match get draw
+	
 	public static void main(String asd[])
 	{		Scanner sc=new Scanner(System.in);
 		String[] postion= {"1","2","3","4","5","6","7","8","9"};
 		System.out.println("Enter the players name");
 		System.out.print("user1:");
 		String user1=sc.next();
-		System.out.print("user2:");
-		String user2=sc.next();
+		String user2="COMPUTER";
+
 		Utility.ticTacToe(postion,user1,user2);
 	}
 }

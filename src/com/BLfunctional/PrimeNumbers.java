@@ -1,3 +1,5 @@
+package com.BLfunctional;
+
 
 public class PrimeNumbers {
 	public static void main(String asd[])

@@ -1,3 +1,5 @@
+package com.BLfunctional;
+
 
 public class BinarSearchForInt {
 	  public static void main(String args[]){      

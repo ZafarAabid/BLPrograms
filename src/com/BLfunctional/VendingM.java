@@ -7,7 +7,7 @@ Logic -> Use Recursion and check for largest value of the Note to
  		return change to get to minimum number of Notes. 
 */
 
-package com.BridgeLabz.Functional;
+package com.BLfunctional;
 
 public class VendingM {
 	public static void main(String asd[])

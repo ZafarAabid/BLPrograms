@@ -15,10 +15,11 @@ public class Windchill {
 	public static void main(String asd[])
 	{
 		System.out.println("using command line args");
-		int temp= Integer.parseInt(asd[0]);
-		int vel=Integer.parseInt(asd[1]);
-		Utility.windchill(temp,vel);
-	}
+		System.out.println("Enter the velocity within limit of 3-120  and temp<50");
+		int temprature= Integer.parseInt(asd[0]);
+		int velocity=Integer.parseInt(asd[1]);
+		double wc=Utility.windchill(temprature,velocity);
+	System.out.println(wc);}
 	
 
 }

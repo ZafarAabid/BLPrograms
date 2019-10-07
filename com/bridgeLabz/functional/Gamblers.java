@@ -1,3 +1,5 @@
+	// program to play Gambler game where gambler puts the valid moves and set goal  and play until he won or loss 
+	// here gambler set the GOal,Stake,and trails. based on this, the game happens
 package com.bridgeLabz.functional;
 public class Gamblers {
 	public static void main(String args[])

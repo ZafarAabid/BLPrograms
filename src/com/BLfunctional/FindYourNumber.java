@@ -1,3 +1,5 @@
+package com.BLfunctional;
+
 import java.util.Scanner;
 
 public class FindYourNumber {

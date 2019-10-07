@@ -1,3 +1,5 @@
+package com.BLfunctional;
+
 /*
  * 6. Binary Search the Word from Word List
 		a. Desc -> Read in a list of words from File.

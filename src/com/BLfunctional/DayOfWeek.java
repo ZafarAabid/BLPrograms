@@ -13,7 +13,7 @@ m0 = m + 12 × ((14 − m) / 12) − 2
 d0 = (d + x + 31m0 / 12) mod 7
 */
 
-package com.BridgeLabz.Functional;
+package com.BLfunctional;
 
 public class DayOfWeek {
 

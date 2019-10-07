@@ -1,9 +1,12 @@
-package com.BridgeLabz.Functional;
+package com.BLfunctional;
+
+
 import java.util.Arrays;
 import java.util.*;
 
 public class Utility 
 {
+	static Scanner sc=new Scanner(System.in);
 	
 	public static void findAnagram(String str1, String str2)
 		{

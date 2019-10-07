@@ -1,3 +1,5 @@
+package com.BLfunctional;
+
 import java.util.Scanner;
 class BinarySearchForString { 
 	public static void main(String []args) 
