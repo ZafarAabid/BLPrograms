@@ -1,4 +1,4 @@
-package com.bridgeLabz.dataSt;
+package com.bridgelabz.datast;
 
 public class StackAbs {
 	 private static int length=0;
@@ -44,6 +44,7 @@ public class StackAbs {
 		 {
 			 result=top.data;
 			 top=top.next;
+			// System.out.println(top.data);
 			 length--;
 		 }
 		 return result;

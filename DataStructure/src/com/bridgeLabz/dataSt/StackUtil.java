@@ -1,6 +1,8 @@
 package com.bridgeLabz.dataSt;
+//package com.bridgeLabz.dataSt;
 
-public class StackAbs {
+
+public class StackUtil {
 	 private static int length=0;
 	 private static Node top=null;
 	 

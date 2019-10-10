@@ -1,40 +1,28 @@
-/**
-a. Desc -> Read .a List of Numbers from a file and arrange
-   it ascending Order in a Linked List. Take user input
-   for a number, if found then pop the number out of the
-   list else insert the number in appropriate position
-b. I/P -> Read from file the list of Numbers and take user
-   input for a new number
-c. Logic -> Create a Ordered Linked List having Numbers
-   in ascending order.
-d. O/P -> The List of Numbers to a File.
-*/
+package com.bridgelabz.datast;
 
-package com.bridgeLabz.dataSt;
-
-public class OrderedList {
-	static OrderedList o= new OrderedList();
-	   static Node head=null;
+public class UnOrderedList {
+	static UnOrderedList o= new UnOrderedList();
+	 static Node head=null;
 	 class Node
 	{
-		Node(){}
+		Node(){}//class constructor
 		
-		private int data;
+		private String data;
 		private Node next;
-		public Node(int data)
+		public Node(String data)	//parameterized
 		{
 			this.data=data;
 			this.next=null;
 		}
 	}
 	 
-		public  Node Orderedlist()
+		public static Node list()    //generating empty list
 		{
 			return head;
 		}
 
 
-	public static  void addNode(int data)
+	public static  void addNode(String data)  //method to add node
 	{
 		if(head==null)
 		{
@@ -53,7 +41,7 @@ public class OrderedList {
 		}
 	}
 	
-	public static  void removeNode(int data)
+	public static  void removeNode(String data)  //method to remove node
 	{
 		if(head==null)
 		{
@@ -64,12 +52,12 @@ public class OrderedList {
 		{
 			Node temp=head;
 			Node temp1=head.next;
-			while(temp1.data!=data)
+			while(!temp1.data.equals(data))
 			{
 				temp=temp.next;
 				temp1=temp1.next;
 			}
-			if(temp1.data==data)
+			if(temp1.data.equals(data))
 			{
 				temp.next=temp1.next;
 			}
@@ -80,7 +68,7 @@ public class OrderedList {
 	
 	
 	
-	public static  boolean searchNode(int data)
+	public static  boolean searchNode(String data)//method to search node
 	{
 		if(head==null)
 		{
@@ -91,9 +79,9 @@ public class OrderedList {
 		{
 			Node temp=head;
 			
-			while(temp.data!=data)
+			while((!temp.data.equals(data))&& (temp.next!=null))
 				temp=temp.next;
-			if(temp.data==data)
+			if(temp.data.equals(data))
 				return true;
 			else 
 				return false;
@@ -103,7 +91,7 @@ public class OrderedList {
 	
 	
 	
-	public static void printList()
+	public static void printList()  ////method to print list
 	{
 
 		Node tempp=head;
@@ -117,7 +105,7 @@ public class OrderedList {
 	
 	
 	
-	public static boolean isEmpty()
+	public static boolean isEmpty()  // checking availability
 	{
 		if(head==null)
 			return true;
@@ -126,7 +114,7 @@ public class OrderedList {
 	}
 	
 	
-	public static int size()
+	public static int size() //   getting size of list
 	{
 		int count=0;
 		Node tempp=head;
@@ -139,4 +127,3 @@ public class OrderedList {
 		return count;
 	}
 }
-

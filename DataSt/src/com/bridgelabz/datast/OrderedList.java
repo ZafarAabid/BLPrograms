@@ -10,31 +10,32 @@ c. Logic -> Create a Ordered Linked List having Numbers
 d. O/P -> The List of Numbers to a File.
 */
 
-package com.bridgeLabz.dataSt;
+package com.bridgelabz.datast;
 
 public class OrderedList {
 	static OrderedList o= new OrderedList();
 	   static Node head=null;
 	 class Node
 	{
-		Node(){}
+		Node(){}       //class constructor 
 		
 		private int data;
 		private Node next;
-		public Node(int data)
+		
+		public Node(int data)  //parameterized
 		{
 			this.data=data;
 			this.next=null;
 		}
 	}
 	 
-		public  Node Orderedlist()
+		public  Node Orderedlist() //empty list
 		{
 			return head;
 		}
 
 
-	public static  void addNode(int data)
+	public static  void addNode(int data)  //add new node
 	{
 		if(head==null)
 		{
@@ -53,7 +54,7 @@ public class OrderedList {
 		}
 	}
 	
-	public static  void removeNode(int data)
+	public static  void removeNode(int data)  //remove existing node
 	{
 		if(head==null)
 		{
@@ -79,8 +80,8 @@ public class OrderedList {
 	}
 	
 	
-	
-	public static  boolean searchNode(int data)
+	//code to search element either exist in list or not	
+	public static  boolean searchNode(int data)   
 	{
 		if(head==null)
 		{
@@ -103,7 +104,7 @@ public class OrderedList {
 	
 	
 	
-	public static void printList()
+	public static void printList()    // print linked list data
 	{
 
 		Node tempp=head;
@@ -117,7 +118,7 @@ public class OrderedList {
 	
 	
 	
-	public static boolean isEmpty()
+	public static boolean isEmpty()    //return true or false 
 	{
 		if(head==null)
 			return true;

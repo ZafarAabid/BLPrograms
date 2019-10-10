@@ -1,29 +1,29 @@
-package com.bridgeLabz.dataSt;
+package com.bridgelabz.datast;
 
-public class StackAbs {
-	 private static int length=0;
-	 private static Node top=null;
+public class StackInts<T> {
+	 private  int length=0;
+	 private  Node top=null;
 	 
 	 class Node
 		{
 			Node(){}
 			
-			private char data;
+			private T data;
 			private Node next;
-			public Node(char data)
+			public Node(T data)
 			{
 				this.data=data;
 				this.next=null;
 			}
 		}
 	 
-	 public static Node stack()
+	 public  Node stack()
 	 {
 		 Node top=null;
 		return top;
 	 }
 
-	 public void push(char opening)
+	 public void push(T opening)
 	 {
 		 Node node=new Node(opening);
 		 if(top==null)
@@ -37,26 +37,27 @@ public class StackAbs {
 	 
 	 }
 	 
-	 public char pop(char opening)
+	 public T pop()
 	 {
-		 char result = 0;
+		 T result = null;
 		 if(top!=null)
 		 {
 			 result=top.data;
 			 top=top.next;
+			// System.out.println(top.data);
 			 length--;
 		 }
 		 return result;
 	 }
 	 
 	 
-	 public char peek()
+	 public T peek()
 	 {
 		 return (top==null)?null:top.data;
 	 }
 	 
 	 
-	 public static boolean isEmpty()
+	 public  boolean isEmpty()
 	 {
 		 if(top==null)
 			 return true;
@@ -64,7 +65,7 @@ public class StackAbs {
 			 return false;
 	 }
 	 
-	 public static int size()
+	 public  int size()
 	 {
 		 return length;
 	 }
