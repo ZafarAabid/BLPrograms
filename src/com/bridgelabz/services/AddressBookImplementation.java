@@ -4,7 +4,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -90,18 +95,68 @@ public class AddressBookImplementation implements AddressBook {
 		for(Person p:list)
 			System.out.println("name is :"+p.getFirstName()+"  "+p.getLastName()+
 							   "\tMobileNumber:"+p.getMobileNumber()+
-							   ", "+p.getAddress().getState()+
+							   ", State:"+p.getAddress().getState()+
 							   "\tAddress is :"+p.getAddress().getCity()+
 							   ", "+p.getAddress().getZip());
 ;
 		}
 	@Override
 	public void sortByLastName() {
-		
+		String name;
+		File folder = new File("/home/user/eclipse-workspace/AddressBook/Books");
+		File[] listOfFiles = folder.listFiles();
+		System.out.println("\nRoot directory contains these files\n");
+		System.out.println("------------------------------");
+		  for (int i = 0; i < listOfFiles.length; i++) {
+			  if (listOfFiles[i].isFile()) {
+				  System.out.println("File " + listOfFiles[i].getName());
+		  		  } 
+		  	  }
+		System.out.println("------------------------------");
+		System.out.println("Enter the name of file");
+		name=scan.scannerString();
+		String path=AddressBookImplementation.path+name+".json";
+		File file=new File(path);
+		List<Person> list=(List<Person>) Utility.convertJsonToJava(file,List.class);
+				for (Person person : list) {
+					for (Person person2 : list) {
+						if(person.getFirstName().compareTo(person2.getFirstName())>0)
+						{
+							Person temp=person;
+							person=person2;
+							person2=temp;
+						}
+					}
+				}
 	}
 	@Override
 	public void sortByZip() {
-		
+		String name;
+		File folder = new File("/home/user/eclipse-workspace/AddressBook/Books");
+		File[] listOfFiles = folder.listFiles();
+		System.out.println("\nRoot directory contains these files\n");
+		System.out.println("------------------------------");
+		  for (int i = 0; i < listOfFiles.length; i++) {
+			  	if (listOfFiles[i].isFile()) {
+			  		System.out.println("File " + listOfFiles[i].getName());
+			  		}
+		  		}
+		System.out.println("------------------------------");
+		System.out.println("Enter the name of file");
+		name=scan.scannerString();
+		String path=AddressBookImplementation.path+name+".json";
+		File file=new File(path);
+		//Generic
+		List<Person> list=(List<Person>) Utility.convertJsonToJava(file,List.class);
+		//Lambda Expression
+		Collections.sort(list,(e1,e2)->e1.getAddress().getZip()>e2.getAddress().getZip())));
+		//iteration over list
+		for(Person p:list)
+			System.out.println("name is :"+p.getFirstName()+"  "+p.getLastName()+
+							   "\tMobileNumber:"+p.getMobileNumber()+
+							   ", State:"+p.getAddress().getState()+
+							   "\tAddress is :"+p.getAddress().getCity()+
+							   ", "+p.getAddress().getZip());
 	}
 	@SuppressWarnings("resource")
 	@Override
@@ -129,7 +184,7 @@ public class AddressBookImplementation implements AddressBook {
 	}
 	@Override
 	public void close() {
-		
+		System.exit(0);
 	}
 
 	@Override
@@ -147,7 +202,9 @@ public class AddressBookImplementation implements AddressBook {
 		
 	}
 	@Override
-	public void openBook(String name) {
+	public void openBook() {
+		System.out.println("Enter name of a Book");
+		String name=scan.scannerString();
 		String path="/home/user/eclipse-workspace/AddressBook/Books/";
 		path=path+name+".json";
 

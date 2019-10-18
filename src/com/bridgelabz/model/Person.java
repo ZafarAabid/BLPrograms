@@ -3,7 +3,7 @@ package com.bridgelabz.model;
  * Person class that carries firstName,lastName,mobileNumber
  *  and Address(object)
  * */
-public class Person {
+public class Person implements Comparable<Person> {
 	String firstName;
 	String lastName;
 	long mobileNumber;
@@ -41,6 +41,16 @@ public class Person {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	@Override
+	public int compareTo(Person p) {
+		return this.getAddress().getZip() - p.getAddress().getZip();
+	}
+	
+	@Override
+	public String toString() {
+		return "zip{"+this.getAddress().getZip()+"}";
+	}
+}
 
 	
-}
+

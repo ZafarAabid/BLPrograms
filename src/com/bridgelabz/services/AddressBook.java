@@ -20,7 +20,7 @@ public interface AddressBook {
 	
 	File newAddressBook(String path);
 	
-	void openBook(String name);
+	void openBook();
 	
 	void deleteBook(String name);
 	
@@ -31,5 +31,6 @@ public interface AddressBook {
 	void saveAs(String str);
 	
 	void quit();
+
 
 }

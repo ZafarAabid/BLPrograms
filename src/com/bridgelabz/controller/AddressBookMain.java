@@ -25,8 +25,8 @@ public class AddressBookMain {
 	public static void start() {
 		System.out.println("----------------Address Book Management----------------");
 		System.out.println("Main menu\n");
-		System.out.println("1. New");
-		System.out.println("2. Open");
+		System.out.println("1. Action On Book");
+		System.out.println("2. Action On Person");
 		System.out.println("3. Quit");
 		
 		int actionOnBook = 0;

@@ -24,7 +24,7 @@ public class ActionOnBook {
 		switch(actionOnBook)
 		{
 		case  1:	implement.newAddressBook(path);	break;
-		case  2:	implement.openBook(path);       break;
+		case  2:	implement.openBook();       break;
 		case  3:	Utility.getAllFiles();			break;
 				
 		case  4:	
