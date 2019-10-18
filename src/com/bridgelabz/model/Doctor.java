@@ -10,6 +10,7 @@ static Scan scan = new Scan();
 	String avail;
 	String specialization;
 	Utility u1;
+	int popularity=0;
 
 	//getter and setter methods
 	public int getDoctorId() 
@@ -19,6 +20,12 @@ static Scan scan = new Scan();
 	public void setDoctorId(int did) 
 	{
 		this.doctorId = did;
+	}
+	public int getPopularity() {
+		return popularity;
+	}
+	public void setPopularity() {
+		popularity++;
 	}
 	public String getDname() 
 	{
@@ -52,7 +59,7 @@ static Scan scan = new Scan();
 	public void addDoctor()
 	{
 		u1=new Utility();
-		System.out.println("Enter Your Details ...");
+		System.out.println("Enter Doctors' Details ...");
 
 		System.out.println("Enter Name: ");
 		this.dname=scan.scannerString();
@@ -69,5 +76,6 @@ static Scan scan = new Scan();
 		System.out.println("Enter Availability (AM/PM/Both):");
 		this.avail=scan.scannerString();
 		System.out.println();
+		
 	}
 }

@@ -34,7 +34,7 @@ public class Appointment
 
 	public String toString() 
 	{
-		return "Appointment [did=" + doctorId + ", date=" + date +  "]";
+		return "Appointment [DoctorID=" + doctorId + ", date=" + date +  "]";
 	}
 
 	public int hashCode()

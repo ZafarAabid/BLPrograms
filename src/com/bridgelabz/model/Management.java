@@ -5,25 +5,39 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import com.bridgelabz.utility.*;
 
 public class Management {
 static Scan scan = new Scan();
 static Utility util = new Utility();
-static ArrayList<Doctor> ald = new ArrayList<Doctor>();
+ ArrayList<Doctor> ald = new ArrayList<Doctor>();
 ArrayList<Patients> alp = new ArrayList<Patients>();
 static HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
+static ArrayList<Doctor> oppointments;
 
-
-	public static HashMap<Appointment, Integer> appoint()
+	public static HashMap<Appointment, Integer> appoint(ArrayList<Doctor> ald)
 	{
+		Doctor doct = null;
+		String spec = null;
 		System.out.println("Enter Docotor Id ");
 		int did=scan.scannerInt();
 		ArrayList<Doctor>doc=Management.FindById(ald, did);
 		if(doc!=null)
 		{
-			if(doc.size()>=1)
+			Iterator<Doctor> it =ald.iterator();
+			while(it.hasNext())
+			{doct=(Doctor) it.next();
+				if(doct.getDoctorId()==did)
+					break;
+				else 
+					doct=null;
+			}
+			if(doct!=null)
+				{spec=doct.getSpec();
+				}
+				if(doc.size()>=1)
 			{
 				System.out.println("Enter Date of Appointment(eg.10/06/2016): ");
 				Date date=printDate(scan.scannerString());
@@ -43,7 +57,7 @@ static HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
 							//Appointment on given date is less then 5
 							appointment++;
 							appoint.put(newApp,appointment);
-							System.out.println("Appointment Scheduled on "+date.toString()+" "+" with Doctor Id"+did);
+							System.out.println("Appointment Scheduled on "+date.toString()+" "+" with "+spec+" Doctor of Id:"+did);
 						}
 						else
 						{
@@ -71,25 +85,26 @@ static HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
 		return appoint;
 	}
 	
-	public static ArrayList<Doctor> FindById ( ArrayList<Doctor> al,int did)  	{  
-		ArrayList<Doctor> temp=new ArrayList<Doctor>();
+	public static ArrayList<Doctor> FindById ( ArrayList<Doctor> list,int id)  	{  
+		oppointments=new ArrayList<Doctor>();
 		
-		for(Doctor d:al)
+		for(Doctor d:list)
 		{
-			if(d.getDoctorId()==did)
+			if(d.getDoctorId()==id)
 			{
-				temp.add(d);
+				d.setPopularity();
+				oppointments.add(d);
 			}
 		}
-		return temp;	
+		return oppointments;	
 	}
 
 	/**search patients by Number*/
-	public ArrayList<Patients> FindByava1 (ArrayList<Patients> al1, String as1)   
+	public ArrayList<Patients> FindByava1 (ArrayList<Patients> list, String as1)   
 	{	
 		ArrayList<Patients> temp=new ArrayList<Patients>();
 		
-		for(Patients p1:al1)
+		for(Patients p1:list)
 		{
 			if(p1.getMobile()==as1)
 			{
@@ -108,5 +123,22 @@ static HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
 		catch(ParseException pe){
 			return null;
 		}
+	}
+
+	public static void popularity() {
+		Doctor doct=new Doctor();
+		Doctor popDoc = null;
+		int popular=0;
+		Iterator<Doctor> it =oppointments.iterator();
+		while(it.hasNext())
+		{
+			doct=(Doctor) it.next();
+			if(doct.getPopularity()>popular)
+			{
+				popular=doct.getPopularity();
+				popDoc=doct;
+			}
+		}
+		System.out.println("Most popular doct is"+popDoc.getDoctorId());
 	}
 }

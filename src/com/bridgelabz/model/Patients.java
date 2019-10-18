@@ -56,7 +56,7 @@ public class Patients
 	public void addPatient()
 	{
 
-		System.out.println("Enter Your Details ...");
+		System.out.println("Enter Patients' Details ...");
 
 		System.out.println("Enter Name: ");
 		this.pname=scan.scannerString();

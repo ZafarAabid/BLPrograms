@@ -2,14 +2,13 @@ package com.bridgelabz.utility;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
+import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 
 import com.bridgelabz.controller.ClinicManagementMain;
 import com.bridgelabz.model.Appointment;
@@ -20,39 +19,68 @@ import com.bridgelabz.model.Patients;
 public class Utility {
 	
 	Scan scan = new Scan();
-	File file=new File("clinic.json");
-	static Management manage = new Management();
-	HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
+	
 	Patients patient=new Patients();
 	Doctor doctor=new Doctor();
-	ArrayList<Doctor> ald = new ArrayList<Doctor>();
-	ArrayList<Patients> alp = new ArrayList<Patients>();
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static ObjectMapper mapper =new ObjectMapper();
 	
+	HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
+	ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
+	ArrayList<Patients> patientList = new ArrayList<Patients>();
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static File fileDoc=new File("doctor.json");
+	static File filePat=new File("patient.json");
+	static ObjectMapper mapper =new ObjectMapper();
+	static Management manage = new Management();
+	static InputStream is;
+	TypeReference<List<Doctor>> docRef = new TypeReference<List<Doctor>>() {};
+	TypeReference<List<Patients>> patRef = new TypeReference<List<Patients>>() {};
 	public void hospital(int choice)
 	{
 		switch(choice)
 		{
 		case 1:
 			doctor.addDoctor();
-					ald.add(doctor);
+			doctorList.add(doctor);
+//			try {
+//				is = new FileInputStream(new File("doctor.json"));
+//				List<Doctor> doctors= mapper.readValue(is,docRef);
+//				doctors.add(doctor);
+//				mapper.writeValue(fileDoc, doctors);
+//
+//			} catch (JsonGenerationException e1) {
+//				System.out.println("error is: "+e1.getMessage());
+//			} catch (JsonMappingException e1) {
+//				System.out.println("error is: "+e1.getMessage());
+//			} catch (IOException e1) {
+//				System.out.println("error is: "+e1.getMessage());
+//			}
+				
+			
+					
 			
 		break;
 		case 2:
 					patient.addPatient();
-					alp.add(patient);
+					patientList.add(patient);
+//					try {
+//						is = new FileInputStream(filePat);
+//						List<Patients> patients= mapper.readValue(is,patRef);
+//						patients.add(patient);
+//						mapper.writeValue(fileDoc, patients);
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
 		break;
 		case 3:
 					System.out.println("All Doctors Details..");
-					System.out.println(ald);
+					System.out.println(doctorList);
 		break;
 	case 4:
 					System.out.println("All Patients Details..");
-					System.out.println(alp);
+					System.out.println(patientList);
 	break;
 	case 5:
-					appoint=Management.appoint();
+					appoint=Management.appoint(doctorList);
 	break;
 	case 6:
 					System.out.println("Printing All Appointments...");
@@ -62,17 +90,21 @@ public class Utility {
 	case 7:
 					System.out.println("1.Enter Docotor Id");
 					int did1=scan.scannerInt();
-					ald=Management.FindById(ald,did1);
-					System.out.println(ald);
+					doctorList=Management.FindById(doctorList,did1);
+					System.out.println(doctorList);
 						
 	case 8:
 					//Search Patients by Mobile Number
 					System.out.println("Enter Patients Mobile Number");
 					String avail1=scan.scannerString();
-					alp=manage.FindByava1(alp,avail1);
-					System.out.println(alp);
+					patientList=manage.FindByava1(patientList,avail1);
+					System.out.println(patientList);
 	break;
 	case 9:
+					Management.popularity();
+					
+	break;
+	case 0:
 					System.exit(0);
 	break;
 		
