@@ -1,58 +1,40 @@
 package com.bridgelabz.utility;
-import java.io.*;
-import java.util.Random;
+import java.util.Scanner;
 
-
-import org.codehaus.jackson.map.*;
 public class Utility {
-	static File file;
-	static ObjectMapper mapper= new ObjectMapper();
-	public String[][] createCards() {
-		String[] suit= {"C","D","H","S"};
-		String[] rank= {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
-		String[][] playersCard = new String[4][9];
-		Random random1=new Random();
-		Random random2=new Random();
-		UnOrderedList list = new UnOrderedList();
-		for (int j = 0; j < 4; j++)
-		for (int i = 0; i < 9; i++) 
+	static Scanner scanner=new Scanner(System.in);
+		
+		public int scannerInt()
 		{
-			String card=rank[random2.nextInt(rank.length)]+"-"+suit[random1.nextInt(suit.length)]+"  ";
-			
-			for (int k = 0; k < 1; k++) {
-				list.addNode(card);
-				playersCard[j][i]=card;
-			}
-			if(!list.contains(card))
-				{	playersCard[j][i]=card;
-					list.addNode(card);
-				}
-			else
-				i--;
+			int input = scanner.nextInt();
+			return input;
 		}
-		
-		
-		return playersCard;
-	}
-	
-	
-	public String[][] sort(String[][] playersCard) {
-		
-		String[][] cards=playersCard;
-		String temp="";
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 9; j++) {
-				for (int k = 0; k < 9; k++) {
-					if(cards[i][j].charAt(0) >(cards[i][k]).charAt(0))
-					{	temp=cards[i][j];
-					cards[i][j]=cards[i][k];
-					cards[i][k]=temp;
-					}
-				}
-			}
+		public double scannerDouble()
+		{
+			double input = scanner.nextInt();
+			return input;
 		}
-		return cards;
-	}
+		public String scannerString()
+		{
+			String input = scanner.next();
+			return input;
+		}
+		public String nextStringLine()
+		{
+			String input1 = scanner.nextLine();
+			return input1;
+		}
+
+		public float scannerFloat()
+		{
+			float input1 = scanner.nextInt();
+			return input1;
+		}
+		public long scannerLong()
+		{
+			long input1 = scanner.nextLong();
+			return input1;
+		}
 
 	
 	
