@@ -32,6 +32,7 @@ import com.bridgelabz.utility.*;
 //		System.out.println();
 		System.out.println("0.exit");
 		
+		
 		int choice=scan.scannerInt();
 		util.hospital(choice);
 		
