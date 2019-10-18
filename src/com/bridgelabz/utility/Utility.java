@@ -16,7 +16,8 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
-
+/** class that used to create new Entries,validate entry & conversion of java to json and vice versa,
+ * using ObjectMapper class*/
 public class Utility {
 	static SimpleDateFormat sdf=new SimpleDateFormat("dd/mm/yyyy");
 	static ArrayList<Entry> list = new ArrayList<Entry>();

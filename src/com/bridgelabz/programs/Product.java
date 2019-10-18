@@ -1,5 +1,6 @@
 package com.bridgelabz.programs;
-
+/**
+ * java POJOs to create object of ingredients*/
 public class Product {
 	Product(){};
   
@@ -10,10 +11,10 @@ public class Product {
          public Product(String name, String total, double price)
          {
               prodName = name;
-              setUnitsTotal (total); // validate and store total of cars
-              setUnitPrice (price); // validate and store price per car
+              setUnitsTotal (total); // validate and store total Kg
+              setUnitPrice (price); // validate and store price
              
-          } // end four-argument constructor        
+          } // end three-argument constructor        
          
 
          public void setProdName( String name)
