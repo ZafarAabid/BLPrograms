@@ -2,11 +2,16 @@ package com.bridgelabz.utility;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -21,11 +26,11 @@ public class Utility {
 	Scan scan = new Scan();
 	
 	Patients patient=new Patients();
-	Doctor doctor=new Doctor();
-	
+//	Doctor doctor=new Doctor();
+	int index=0;
 	HashMap<Appointment,Integer> appoint=new HashMap<Appointment,Integer>();
-	ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
-	ArrayList<Patients> patientList = new ArrayList<Patients>();
+	static ArrayList<Doctor> doctorList = new ArrayList<Doctor>();
+	static ArrayList<Patients> patientList = new ArrayList<Patients>();
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static File fileDoc=new File("doctor.json");
 	static File filePat=new File("patient.json");
@@ -39,48 +44,66 @@ public class Utility {
 		switch(choice)
 		{
 		case 1:
-			doctor.addDoctor();
-			doctorList.add(doctor);
-//			try {
-//				is = new FileInputStream(new File("doctor.json"));
+			Doctor doctor=new Doctor();
+				doctor.addDoctor();
+
+			try {
+				is = new FileInputStream(new File("doctor.json"));
 //				List<Doctor> doctors= mapper.readValue(is,docRef);
+				doctorList= mapper.readValue(is,docRef);
 //				doctors.add(doctor);
-//				mapper.writeValue(fileDoc, doctors);
-//
-//			} catch (JsonGenerationException e1) {
-//				System.out.println("error is: "+e1.getMessage());
-//			} catch (JsonMappingException e1) {
-//				System.out.println("error is: "+e1.getMessage());
-//			} catch (IOException e1) {
-//				System.out.println("error is: "+e1.getMessage());
-//			}
-				
+				doctorList.add(doctor);
+				mapper.writeValue(fileDoc, doctorList);
+
+			} catch (JsonGenerationException e1) {
+				System.out.println("GE error is: "+e1.getMessage());
+			} catch (JsonMappingException e1) {
+				System.out.println("ME error is: "+e1.getMessage());
+			} catch (IOException e1) {
+				System.out.println("IO error is: "+e1.getMessage());
+			}
 			
-					
-			
-		break;
-		case 2:
-					patient.addPatient();
-					patientList.add(patient);
-//					try {
-//						is = new FileInputStream(filePat);
-//						List<Patients> patients= mapper.readValue(is,patRef);
-//						patients.add(patient);
-//						mapper.writeValue(fileDoc, patients);
-//					} catch (IOException e) {
-//						e.printStackTrace();
-//					}
 		break;
 		case 3:
-					System.out.println("All Doctors Details..");
-					System.out.println(doctorList);
+			System.out.println("All Doctors Details..");
+			for (int i = 0; i < doctorList.size(); i++) {
+				System.out.println(doctorList.get(i));
+			}
 		break;
+		
+		case 2:
+					patient.addPatient();
+
+					try {
+						is = new FileInputStream(new File("patient.json"));
+//						List<Doctor> doctors= mapper.readValue(is,docRef);
+						patientList= mapper.readValue(is,patRef);
+//						doctors.add(doctor);
+						patientList.add(patient);
+						mapper.writeValue(filePat, patientList);
+
+					} catch (JsonGenerationException e1) {
+						System.out.println("GE error is: "+e1.getMessage());
+					} catch (JsonMappingException e1) {
+						System.out.println("ME error is: "+e1.getMessage());
+					} catch (IOException e1) {
+						System.out.println("IO error is: "+e1.getMessage());
+					}				
+		break;
+
 	case 4:
 					System.out.println("All Patients Details..");
 					System.out.println(patientList);
 	break;
-	case 5:
-					appoint=Management.appoint(doctorList);
+	case 5:			
+					ArrayList<Doctor> docList = new ArrayList<Doctor>();
+			try {
+				is = new FileInputStream(new File("doctor.json"));
+				docList= mapper.readValue(is,docRef);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+					appoint=Management.appoint(docList);
 	break;
 	case 6:
 					System.out.println("Printing All Appointments...");

@@ -139,6 +139,6 @@ static ArrayList<Doctor> oppointments;
 				popDoc=doct;
 			}
 		}
-		System.out.println("Most popular doct is"+popDoc.getDoctorId());
+		System.out.println("Most popular doct is of ID: "+popDoc.getDoctorId());
 	}
 }

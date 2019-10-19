@@ -6,7 +6,7 @@ public class Doctor
 {
 static Scan scan = new Scan();
 	int doctorId;
-	String dname;
+	String doctorname;
 	String avail;
 	String specialization;
 	Utility u1;
@@ -29,11 +29,11 @@ static Scan scan = new Scan();
 	}
 	public String getDname() 
 	{
-		return dname;
+		return doctorname;
 	}
 	public void setDname(String dname) 
 	{
-		this.dname = dname;
+		this.doctorname = dname;
 	}
 	public String getAvail() 
 	{
@@ -53,7 +53,7 @@ static Scan scan = new Scan();
 	//toString method
 	public String toString() 
 	{
-		return "Doctor [DoctorId=" + doctorId + ", name=" + dname + ", availability=" + avail + ", specialization=" + specialization + "]";
+		return "Doctor [DoctorId=" + doctorId + ", name=" + doctorname + ", availability=" + avail + ", specialization=" + specialization + "]";
 	}
 	//to add doctor details
 	public void addDoctor()
@@ -62,7 +62,7 @@ static Scan scan = new Scan();
 		System.out.println("Enter Doctors' Details ...");
 
 		System.out.println("Enter Name: ");
-		this.dname=scan.scannerString();
+		this.doctorname=scan.scannerString();
 		System.out.println();
 
 		System.out.println("Enter Id: ");
