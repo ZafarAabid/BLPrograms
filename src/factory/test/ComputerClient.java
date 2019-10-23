@@ -1,8 +1,8 @@
-package test;
+package factory.test;
 
-import factoryPattern.ComputerFactory;
-import factoryPattern.ComputerType;
-import factorybeans.Computer;
+import factory.factoryPattern.ComputerFactory;
+import factory.factoryPattern.ComputerType;
+import factory.factorybeans.Computer;
 
 public class ComputerClient {
 	

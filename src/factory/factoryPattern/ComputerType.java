@@ -1,4 +1,4 @@
-package factoryPattern;
+package factory.factoryPattern;
 
 
 public enum ComputerType{

@@ -1,4 +1,4 @@
-package factorybeans;
+package factory.factorybeans;
 
 public class Laptop  implements Computer{
 	private String RAM;

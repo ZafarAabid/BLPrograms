@@ -1,7 +1,7 @@
-package factoryPattern;
+package factory.factoryPattern;
 
-import factorybeans.Computer;
-import factorybeans.*;
+import factory.factorybeans.Computer;
+import factory.factorybeans.*;
 
 public class ComputerFactory {
 	public static Computer creatComputer(ComputerType type, String ram, String hdd, String cpu) {

@@ -1,4 +1,4 @@
-package factorybeans;
+package factory.factorybeans;
 
 public interface Computer {
 	
