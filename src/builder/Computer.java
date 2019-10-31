@@ -29,7 +29,7 @@ public class Computer {
 		this.isBluetoothEnabled=builder.isBluetoothEnabled;
 	}
 	
-	//Builder Class
+	/**inner static builder class*/
 	public static class ComputerBuilder{
 
 		// required parameters
@@ -43,17 +43,17 @@ public class Computer {
 			this.HDD=hdd;
 			this.RAM=ram;
 		}
-
+		/**public setter methods for optional field, if someone wants to implement it*/
 		public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
 			this.isGraphicsCardEnabled = isGraphicsCardEnabled;
 			return this;
 		}
-
+		/**public setter methods for optional field, if someone wants to implement it*/
 		public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
 			this.isBluetoothEnabled = isBluetoothEnabled;
 			return this;
 		}
-		
+		/**provide object of computer*/
 		public Computer build(){
 			return new Computer(this);
 		}

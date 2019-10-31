@@ -1,5 +1,7 @@
 package builder;
-
+/**Piece of code to illustrate the concept how to use builder pattern.
+ * its a step by step implementation of an object where user only concern about final
+ * product but not how its get implemented*/
 public class TestBuilderPattern {
 
 	public static void main(String[] args) {
