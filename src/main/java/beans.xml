@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+<!--
+	<bean id="emp" class="com.bridgelabz.Employee">
+		<property name="name" value="Laxman"></property>
+		<property name="salary" value="10000"></property>
+	</bean>
+ --> 
+  <!-- CONSTRUCTOR ARGS-If you change the bean element as given above, 
+ 	  string parameter constructor will be invoked and the output will be 0 10
+ 	<bean id="e" class="com.javatpoint.Employee">  
+	<constructor-arg value="10"></constructor-arg>     
+	</bean>  
+ -->
+<!--  CONSTRUCTOR ARGS --> 
+ 	<bean id="emp" class="com.bridgelabz.simpleDI.Employee">  
+		<constructor-arg value="10000" type="int"></constructor-arg>  
+		<constructor-arg value="Xfr" type="String"></constructor-arg>  
+		<constructor-arg>  
+		<ref bean="a1"/>  
+		</constructor-arg>  
+	</bean>
+	<bean id="a1" class="com.bridgelabz.simpleDI.Address">  
+		<property name="city" value="ghaziabad"></property>  
+		<property name="state" value="UP"></property>  
+		<property name="country" value="India"></property>  
+	</bean>  
+ 
+ 
+ 
+ 
+  	<bean id="empI1" class="com.bridgelabz.inheritance.Employee">  
+		<constructor-arg value="10000" type="int"></constructor-arg>  
+		<constructor-arg value="Xfr" type="String"></constructor-arg>   
+	</bean>
+	<bean id="address" class="com.bridgelabz.inheritance.Address">  
+		<property name="city" value="ghaziabad"></property>  
+		<property name="state" value="UP"></property>  
+		<property name="country" value="India"></property>  
+	</bean>
+	
+  	<bean id="empI2" class="com.bridgelabz.inheritance.Employee" parent="empI1">  
+		<constructor-arg ref="address"></constructor-arg>  
+	</bean>
+	
+	
+		<bean id="add" class="com.bridgelabz.autowire.Address">  
+		<property name="city" value="mumbai"></property>  
+		<property name="state" value="Maharashtra"></property>  
+		<property name="country" value="India"></property>  
+	</bean>  
+ 
+ 	<bean id="empl" class="com.bridgelabz.autowire.Employee" autowire="byName">  
+	<property name="name" value="xfr"></property>
+		<property name="salary" value="50000"></property>
+	</bean>
+	
+</beans>
