@@ -27,6 +27,6 @@ do
 	        wage=$(( $ratePerHr * $workingHr ))
 	        sum=$(( $sum + $wage ))
 		maxHr=$(( $maxHr + 1 ))
-		echo maxHr
+		echo max Hour is:$maxHr
 	done
 done
