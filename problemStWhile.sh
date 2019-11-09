@@ -9,25 +9,24 @@ limit=50;
 
 while [ $maxHr -le $limit ]
 do
-for (( day=1; day -le 20; day++))
-do
-        randomCheck=$(( RANDOM % 3))
-        case $randomCheck in
-        $isFullTime)
-                workingHr=6 ;;
-        $isPartTime)
-                workingHr=3
-        ;;
-        *)
-                workingHr=0
-        ;;
-        esac
+	for (( day=1; day<=20; day++ ))
+	do
+        	randomCheck=$(( RANDOM % 3))
+		        case $randomCheck in
+		        $isFullTime)
+	                workingHr=6 
+			;;
+		        $isPartTime)
+		                workingHr=3
+		        ;;
+		        *)
+		                workingHr=0
+		        ;;
+		        esac
 
-        wage=$(( $ratePerHr * $workingHr ))
-        sum=$(( $sum + $wage ))
-	maxHr++
-	echo $maxHr
+	        wage=$(( $ratePerHr * $workingHr ))
+	        sum=$(( $sum + $wage ))
+		maxHr=$(( $maxHr + 1 ))
+		echo maxHr
+	done
 done
-done
-
-
