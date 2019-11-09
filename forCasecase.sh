@@ -10,13 +10,12 @@ do
 	randomCheck=$(( RANDOM % 3))
 	case $randomCheck in
 	$isFullTime)
-		workingHr=6
-	;;
+		workingHr=6 ;;
 	$isPartTime)
 		workingHr=3
 	;;
 	*)
-		workingHr=6
+		workingHr=0
 	;;
 	esac
 	

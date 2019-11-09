@@ -9,7 +9,7 @@ while [ $valid ]
         then
                 break
         else
-                ((count++))
+                (( count++ ))
         fi
 done
 
